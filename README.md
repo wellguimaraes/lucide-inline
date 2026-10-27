@@ -24,6 +24,17 @@ On first launch, allow **Lucide Inline** in System Settings → Privacy & Securi
 The app needs this to find the text cursor and to send ⌘V. Without it, the picker opens in the
 center of the screen and the text is only copied to the clipboard.
 
+## Release
+
+```sh
+./scripts/release.sh 1.0.0
+```
+
+This builds a universal app (Apple Silicon and Intel) signed with Developer ID. It then notarizes
+the app and a DMG, staples both, tags the commit, and publishes a GitHub release with the DMG and a
+`SHA256SUMS` file. Signing settings come from `~/.floripa-signing/signing.env`; the script's header
+lists them.
+
 ## Icon updates
 
 The app checks npm for a new `lucide-static` release once a day and installs it on its own.
